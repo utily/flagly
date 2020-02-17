@@ -1,11 +1,19 @@
 {
- "name": "@payfunc/template-library",
+ "name": "flagly",
  "version": "0.0.0",
- "description": "Template for NPM library",
+ "description": "Library for parsing and handling feature flags.",
  "author": "PayFunc",
  "license": "MIT",
+"repository": {
+	 "type": "git",
+	 "url": "git+https://github.com/payfunc/flagly"
+	},
+	"bugs": {
+	 "url": "https://github.com/payfunc/flagly/issues"
+	},
+	"homepage": "https://payfunc.com/open-source/flagly",
  "private": false,
- "repository": "https://github.com/payfunc/template-library",
+ "repository": "https://github.com/payfunc/flagly",
  "main": "dist/index.js",
  "typings": "dist/index.d.ts",
  "git": {
