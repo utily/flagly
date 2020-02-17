@@ -1,2 +1,2 @@
-# template-library
-Template for NPM library.
+# flagly
+Library for parsing and handling feature flags.
