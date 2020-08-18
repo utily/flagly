@@ -1,6 +1,6 @@
 import * as flagly from "./index"
 
-describe ("flagly.parse", () => {
+describe("flagly.parse", () => {
 	it("empty", () => {
 		const flags = flagly.parse("")
 		expect(flags).toEqual({})
@@ -31,6 +31,6 @@ describe ("flagly.parse", () => {
 	})
 	it("a.b.c !a.b", () => {
 		const flags = flagly.parse("a.b.c !a.b")
-		expect(flags).toEqual({ a: { } })
+		expect(flags).toEqual({ a: {} })
 	})
 })
