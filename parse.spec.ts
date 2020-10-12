@@ -15,11 +15,11 @@ describe("flagly.parse", () => {
 	})
 	it("-single", () => {
 		const flags = flagly.parse("-single")
-		expect(flags).toEqual({})
+		expect(flags).toEqual({ single: false })
 	})
 	it("!single", () => {
 		const flags = flagly.parse("!single")
-		expect(flags).toEqual({})
+		expect(flags).toEqual({ single: false })
 	})
 	it("a.b.c", () => {
 		const flags = flagly.parse("a.b.c")
@@ -31,6 +31,6 @@ describe("flagly.parse", () => {
 	})
 	it("a.b.c !a.b", () => {
 		const flags = flagly.parse("a.b.c !a.b")
-		expect(flags).toEqual({ a: {} })
+		expect(flags).toEqual({ a: { b: false } })
 	})
 })
