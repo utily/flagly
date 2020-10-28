@@ -9,7 +9,7 @@ export namespace Flags {
 
 	export function stringify(value: Flags): string {
 		return Object.entries(getBaseKey(value))
-			.reduce<string>((r, c) => r + (c[1] ? "+" : "-") + c[0] + " ", "")
+			.reduce<string>((r, c) => r + (c[1] ? "" : "-") + c[0] + " ", "")
 			.trim()
 	}
 }
