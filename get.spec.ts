@@ -5,4 +5,5 @@ describe("flagly.get", () => {
 	it("object", () => expect(flagly.get({ simple: {} }, "simple")).toEqual({}))
 	it("not set", () => expect(flagly.get({}, "simple")).toEqual(undefined))
 	it("false", () => expect(flagly.get({ simple: false }, "simple")).toEqual(false))
+	it("undefined", () => expect(flagly.get(undefined, "simple")).toEqual(undefined))
 })
