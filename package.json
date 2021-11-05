@@ -1,6 +1,6 @@
 {
 	"name": "flagly",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"description": "Library for parsing and handling feature flags.",
 	"author": "PayFunc",
 	"license": "MIT",
