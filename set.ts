@@ -1,6 +1,6 @@
 import { Flags } from "./Flags"
-
-export function set(flags: Readonly<Flags>, ...flag: string[]): Flags {
+export const set = Object.assign(setFlags, { path: setPaths })
+function setFlags(flags: Readonly<Flags>, ...flag: string[]): Flags {
 	const next = flags[flag[0]]
 	const result = { ...flags }
 	if (flag.length > 1)
@@ -8,4 +8,7 @@ export function set(flags: Readonly<Flags>, ...flag: string[]): Flags {
 	else if (!next)
 		result[flag[0]] = true
 	return result
+}
+function setPaths(flags: Readonly<Flags>, ...paths: string[]) {
+	return paths.reduce((result, path) => set(result, ...path.split(".")), flags)
 }
