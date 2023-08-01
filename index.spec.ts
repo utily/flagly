@@ -25,7 +25,7 @@ describe("flagly", () => {
 		})
 	})
 	it("remove", () => {
-		const flags: flagly.Flags = { user: { view: true, write: true } }
-		console.log(flagly.remove.path(flags, "user.write", "user.view"))
+		const flags: flagly.Flags = { user: { view: { foo: true, bar: true }, write: true } }
+		console.log(flagly.remove.path(flags, "user.view.foo", "user.view.bar"))
 	})
 })
