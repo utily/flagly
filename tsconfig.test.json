@@ -1,9 +1,15 @@
 {
 	"compilerOptions": {
-		"target": "es6",
-		"module": "es6",
+		"target": "es2022",
+		"module": "es2022",
+		"lib": [
+			"es2022",
+		],
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
 		"noImplicitAny": true,
-		"removeComments": true,
+		"removeComments": false,
 		"preserveConstEnums": true,
 		"forceConsistentCasingInFileNames": true,
 		"noImplicitThis": true,
@@ -12,8 +18,15 @@
 		"outDir": "dist",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
-		"esModuleInterop": true
+		"paths": {
+			"*": [
+				"types/*"
+			]
+		}
 	},
+	"files": [
+		"index.ts"
+	],
 	"typeAcquisition": {
 		"enable": true
 	}
