@@ -59,7 +59,6 @@
 		"@typescript-eslint/parser": "^6.2.1",
 		"eslint": "^8.46.0",
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20221229",
-		"babel-core": "^6.26.3",
 		"babel-jest": "^29.6.2",
 		"jest": "^29",
 		"prettierx": "github:utily/prettierx#utily-20221229",
