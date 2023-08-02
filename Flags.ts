@@ -13,6 +13,7 @@ export namespace Flags {
 		)
 	)
 	export const is = type.is
+	export const flaw = type.flaw
 
 	export function stringify(value: Flags): string {
 		return Object.entries(getBaseKey(value))
