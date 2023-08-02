@@ -7,9 +7,11 @@ describe("flagly", () => {
 		expect(flagly.Flags.stringify(flags)).toEqual(testString)
 	})
 	it("get", () => {
-		const flags: flagly.Flags = { user: { view: true } }
+		const flags: flagly.Flags = { user: { view: true, write: true } }
 		expect(flagly.get.path(flags, "user.view")).toEqual(true)
+		expect(flagly.get.path(flags, "user.view", "user.write")).toEqual(true)
 		expect(flagly.get.path(flags, "user.edit")).toEqual(false)
+		expect(flagly.get.path(flags, "user.view", "user.edit")).toEqual(false)
 	})
 	it("set", () => {
 		const flags: flagly.Flags = { user: { view: true } }
