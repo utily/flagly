@@ -53,18 +53,22 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"@types/jest": "^26.0.14",
-		"@types/node": "^14.11.10",
-		"@typescript-eslint/eslint-plugin": "^4.4.1",
-		"@typescript-eslint/parser": "^4.4.1",
-		"eslint": "^7.11.0",
-		"eslint-plugin-prettierx": "github:nilssonemma/eslint-plugin-prettierx#master",
+		"@types/jest": "^29.5.3",
+		"@types/node": "^20.4.5",
+		"@typescript-eslint/eslint-plugin": "^6.2.1",
+		"@typescript-eslint/parser": "^6.2.1",
+		"eslint": "^8.46.0",
+		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20221229",
 		"babel-core": "^6.26.3",
-		"babel-jest": "^26.6.0",
-		"jest": "^26",
-		"prettierx": "github:simonmika/prettierx#newline-before-clause",
-		"ts-jest": "^26.4.1",
-		"typescript": "^4.0.5",
-		"watch": "^1.0.2"
+		"babel-jest": "^29.6.2",
+		"jest": "^29",
+		"prettierx": "github:utily/prettierx#utily-20221229",
+		"ts-jest": "^29.1.1",
+		"typescript": "^5.1.6",
+		"watch": "^0.13.0"
+	},
+	"overrides": {
+		"semver": "^7.5.4",
+		"optionator": "^0.9.3"
 	}
 }
