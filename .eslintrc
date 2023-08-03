@@ -9,8 +9,7 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:prettierx/default",
-		"plugin:prettierx/@typescript-eslint"
+		"plugin:prettierx/default"
 	],
 	"rules": {
 		"prettierx/options": [
@@ -32,7 +31,8 @@
 		],
 		"@typescript-eslint/explicit-module-boundary-types": "off",
 		"no-case-declarations": "off",
-		"no-inner-declarations": "off"
+		"no-inner-declarations": "off",
+		"sort-imports": "off",
 	},
 	"settings": {
 		"prettierx": {
