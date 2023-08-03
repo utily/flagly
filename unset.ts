@@ -1,6 +1,7 @@
 import { Flags } from "./Flags"
 
-export function unset(flags: Readonly<Flags>, ...flag: string[]): Flags {
+export const unset = Object.assign(unsetFlags, { path: unsetPaths })
+function unsetFlags(flags: Readonly<Flags>, ...flag: string[]): Flags {
 	let result: Flags
 	const key = flag.at(0)
 	const next = key == undefined ? undefined : flags[key]
@@ -11,4 +12,7 @@ export function unset(flags: Readonly<Flags>, ...flag: string[]): Flags {
 	else
 		result = { ...flags, [key]: false }
 	return result
+}
+function unsetPaths(flags: Readonly<Flags>, ...paths: string[]): Flags {
+	return paths.reduce((result, path) => unset(result, ...path.split(".")), flags)
 }
