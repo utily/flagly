@@ -6,10 +6,10 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/payfunc/flagly"
+		"url": "git+https://github.com/utily/flagly"
 	},
 	"bugs": {
-		"url": "https://github.com/payfunc/flagly/issues"
+		"url": "https://github.com/utily/flagly/issues"
 	},
 	"homepage": "https://payfunc.com/open-source/flagly",
 	"private": false,
