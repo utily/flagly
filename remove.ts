@@ -10,10 +10,10 @@ function removeFlags(flags: Readonly<Flags>, ...flag: string[]): Flags {
 	else if (flag.length > 1) {
 		const filtered = remove(typeof next == "object" ? next : {}, ...flag.slice(1))
 		result = !Object.keys(filtered).length
-			? (({ [flag[0]]: _, ...result }) => result)(flags)
-			: { ...flags, [flag[0]]: filtered }
+			? (({ [key]: _, ...result }) => result)(flags)
+			: { ...flags, [key]: filtered }
 	} else
-		result = (({ [flag[0]]: _, ...result }) => result)(flags)
+		result = (({ [key]: _, ...result }) => result)(flags)
 	return result
 }
 function removePaths(flags: Readonly<Flags>, ...paths: string[]): Flags {
