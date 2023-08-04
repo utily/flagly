@@ -1,11 +1,19 @@
+import { isly } from "isly"
 export type Flags = {
 	[flag: string]: Flags | boolean | undefined
 }
 
 export namespace Flags {
-	export function is(value: Flags | any): value is Flags {
-		return typeof value == "object" && Object.values(value).every(v => typeof v == "boolean" || v == undefined || is(v))
-	}
+	export const type: isly.Type<Flags> = isly.record<Flags>(
+		isly.string(),
+		isly.union(
+			isly.lazy(() => type),
+			isly.boolean(),
+			isly.undefined()
+		)
+	)
+	export const is = type.is
+	export const flaw = type.flaw
 
 	export function stringify(value: Flags): string {
 		return Object.entries(getBaseKey(value))
