@@ -3,13 +3,6 @@ export type Flags = {
 	[flag: string]: Flags | boolean | undefined
 }
 
-// const permissions = {
-// 	"---o1---": { user: true },
-// }
-// stringify
-// "---o1---.user" ---> "+---o1---.user"
-// { "--o1---": { user: false }} ---> permission
-
 export namespace Flags {
 	export const type: isly.Type<Flags> = isly.record<Flags>(
 		isly.string(),
