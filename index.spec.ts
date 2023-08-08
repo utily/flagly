@@ -6,6 +6,11 @@ describe("flagly", () => {
 		const flags = flagly.parse(testString)
 		expect(flagly.Flags.stringify(flags)).toEqual(testString)
 	})
+	it("stringify negative name", () => {
+		const minusName = { "-test": { user: true, org: false } }
+		expect(flagly.parse(flagly.Flags.stringify(minusName))).toEqual(minusName)
+	})
+
 	it("get.path", () => {
 		const flags: flagly.Flags = { user: { view: true, write: true } }
 		expect(flagly.get.path(flags, "user.view")).toEqual(true)
