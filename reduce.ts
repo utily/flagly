@@ -14,7 +14,6 @@ export function reduce(...flags: Flags[]): Flags {
 							: typeof value != "object"
 							? value && old
 							: reduce(old, value),
-					// [flag]: typeof old != "object" ? value : typeof value != "object" ? value && old : reduce(old, value),
 				}
 			}, result),
 		{}
