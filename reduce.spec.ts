@@ -33,10 +33,10 @@ describe("flagly.reduce", () => {
 		const flags = flagly.reduce({ a: { b: { c: true } } }, { a: { b: false } })
 		expect(flags).toEqual({ a: { b: false } })
 	})
-	it("true > object", () => {
+	it("right side true > object", () => {
 		expect(flagly.reduce({ a: { b: true } }, { a: true })).toEqual({ a: true })
 	})
-	it("object > false", () => {
-		expect(flagly.reduce({ a: { b: false } }, { a: { b: { c: true } } })).toEqual({ a: { b: { c: true } } })
+	it("right side object > true", () => {
+		expect(flagly.reduce({ a: true }, { a: { b: true } })).toEqual({ a: { b: true } })
 	})
 })
