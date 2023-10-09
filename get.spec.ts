@@ -6,4 +6,5 @@ describe("flagly.get", () => {
 	it("not set", () => expect(flagly.get({}, "simple")).toEqual(undefined))
 	it("false", () => expect(flagly.get({ simple: false }, "simple")).toEqual(false))
 	it("undefined", () => expect(flagly.get(undefined, "simple")).toEqual(undefined))
+	it("nested", () => expect(flagly.get({ a: true }, "a", "b")).toEqual(true))
 })
