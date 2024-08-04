@@ -1,6 +1,6 @@
 {
 	"name": "flagly",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "Library for parsing and handling feature flags.",
 	"author": "Utily",
 	"license": "MIT",
