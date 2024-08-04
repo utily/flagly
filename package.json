@@ -2,7 +2,7 @@
 	"name": "flagly",
 	"version": "0.2.2",
 	"description": "Library for parsing and handling feature flags.",
-	"author": "PayFunc",
+	"author": "Utily",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -11,7 +11,7 @@
 	"bugs": {
 		"url": "https://github.com/utily/flagly/issues"
 	},
-	"homepage": "https://payfunc.com/open-source/flagly",
+	"homepage": "https://github.com/utily/flagly",
 	"private": false,
 	"main": "dist/cjs/index.js",
 	"module": "dist/mjs/index.js",
