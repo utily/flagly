@@ -68,7 +68,7 @@
 		"clean": "rimraf dist node_modules coverage"
 	},
 	"dependencies": {
-		"isly": "^0.1.11"
+		"isly": "^0.1.20"
 	},
 	"devDependencies": {
 		"@types/jest": "^29.5.3",
