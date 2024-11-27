@@ -1,4 +1,4 @@
-import * as flagly from "./index"
+import { flagly } from "./index"
 
 describe("flagly.get", () => {
 	it("true", () => expect(flagly.get({ simple: true }, "simple")).toEqual(true))
