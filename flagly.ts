@@ -1,5 +1,6 @@
 export { Flags } from "./Flags"
 export { get } from "./get"
+export { has } from "./has"
 export { merge } from "./merge"
 export { parse } from "./parse"
 export { reduce } from "./reduce"
