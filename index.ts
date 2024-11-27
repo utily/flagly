@@ -1,7 +1,1 @@
-export { Flags } from "./Flags"
-export { parse } from "./parse"
-export { get } from "./get"
-export { reduce } from "./reduce"
-export { set } from "./set"
-export { unset } from "./unset"
 export * as flagly from "./flagly"

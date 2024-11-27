@@ -4,11 +4,11 @@ describe("flagly", () => {
 	it("stringify", () => {
 		const testString = "a.b.c a.b.d e.s -test"
 		const flags = flagly.parse(testString)
-		expect(flagly.Flags.stringify(flags)).toEqual(testString)
+		expect(flagly.stringify(flags)).toEqual(testString)
 	})
 	it("stringify negative name", () => {
 		const minusName = { "-test": { user: true, org: false } }
-		expect(flagly.parse(flagly.Flags.stringify(minusName))).toEqual(minusName)
+		expect(flagly.parse(flagly.stringify(minusName))).toEqual(minusName)
 	})
 
 	it("get.path", () => {

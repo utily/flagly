@@ -1,4 +1,4 @@
-import * as flagly from "./index"
+import { flagly } from "./index"
 
 describe("flagly.parse", () => {
 	it("empty", () => {
