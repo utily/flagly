@@ -3,11 +3,9 @@ export const set = Object.assign(setFlags, { path: setPaths })
 function setFlags(flags: Readonly<Flags>, ...flag: string[]): Flags {
 	const key = flag.at(0)
 	const next = key == undefined ? undefined : flags[key]
-	return !key
-		? { ...flags }
-		: flag.length > 1
+	return key && flag.length > 1
 		? { ...flags, [key]: set(typeof next == "object" ? next : {}, ...flag.slice(1)) }
-		: !next
+		: key && !next
 		? { ...flags, [key]: true }
 		: { ...flags }
 }
