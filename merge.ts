@@ -10,10 +10,10 @@ export function merge(...flags: Flags[]): Flags {
 						value == true || old == true
 							? true
 							: typeof old != "object"
-							? value ?? old
-							: typeof value != "object"
-							? value && old
-							: merge(old, value),
+								? (value ?? old)
+								: typeof value != "object"
+									? value && old
+									: merge(old, value)
 				}
 			}, result),
 		{}

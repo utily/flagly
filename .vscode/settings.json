@@ -33,14 +33,16 @@
 	"editor.insertSpaces": false,
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
-		"eslint.autoFixOnSave": "explicit"
+	"editor.defaultFormatter": "biomejs.biome",
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"eslint.format.enable": true,
-	"eslint.lintTask.enable": true,
-	"javascript.format.enable": false,
-	"typescript.format.enable": false,
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
 	"cSpell.words": [
 		"authly",
 		"cloudly",
@@ -60,7 +62,7 @@
 		"transactly",
 		"typedly",
 		"uply",
-		"Renamer",
+		"Renamer"
 	],
 	"typescript.tsdk": "node_modules/typescript/lib"
 }

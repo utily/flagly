@@ -10,10 +10,10 @@ export function reduce(...flags: Flags[]): Flags {
 						value == true
 							? true
 							: typeof old != "object"
-							? value ?? old
-							: typeof value != "object"
-							? value && old
-							: reduce(old, value),
+								? (value ?? old)
+								: typeof value != "object"
+									? value && old
+									: reduce(old, value)
 				}
 			}, result),
 		{}

@@ -7,10 +7,10 @@ function getFlags(flags?: Readonly<Flags>, ...flag: string[]): Flags | boolean |
 	return next == true
 		? true
 		: flag.length == 1
-		? next
-		: typeof next == "object"
-		? get(next, ...flag.slice(1))
-		: undefined
+			? next
+			: typeof next == "object"
+				? get(next, ...flag.slice(1))
+				: undefined
 }
 function getPaths(flags: Readonly<Flags>, ...paths: string[]): boolean {
 	return !!paths.every(path => get(flags, ...path.split(".")) == true)

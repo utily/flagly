@@ -28,7 +28,7 @@ describe("flagly", () => {
 		expect(flagly.unset.path(flags, "user.write")).toEqual({ user: { view: true, write: false } })
 		expect(flagly.unset.path(flags, "org.view", "user.write")).toEqual({
 			user: { view: true, write: false },
-			org: { view: false },
+			org: { view: false }
 		})
 	})
 	it("remove.path", () => {
