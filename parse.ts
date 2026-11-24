@@ -11,10 +11,8 @@ function tokenize(flags: string): [boolean, string[]][] {
 		.split(" ")
 		.filter(flag => flag)
 		.map(flag => {
-			let state: boolean | undefined =
-				!flag.startsWith("-") && !flag.startsWith("!") && (flag.startsWith("+") || undefined)
-			if (state != undefined) flag = flag.substring(1)
-			else state = true
+			let state: boolean = !flag.startsWith("-")
+			if (!state) flag = flag.substring(1)
 			return [state, flag.split(".")]
 		})
 }
