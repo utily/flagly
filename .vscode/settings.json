@@ -54,6 +54,7 @@
 		"langly",
 		"paramly",
 		"persistly",
+		"Renamer",
 		"selectivly",
 		"servly",
 		"servly-azure",
@@ -62,7 +63,7 @@
 		"transactly",
 		"typedly",
 		"uply",
-		"Renamer"
+		"Utily"
 	],
 	"typescript.tsdk": "node_modules/typescript/lib"
 }

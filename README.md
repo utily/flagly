@@ -41,8 +41,8 @@ const flags: flagly.Flags = { admin: { users: { create: true, delete: false }, s
 
 Parse a string representation into a flags object. Use space-separated tokens where:
 
-- Tokens without prefix or starting with `+` enable flags
-- Tokens starting with `-` or `!` disable flags
+- Tokens without prefix enable flags
+- Tokens starting with `-` disable flags
 - Dot notation represents nested paths
 
 ```typescript
@@ -53,10 +53,6 @@ flagly.parse("admin.users.create admin.settings")
 // Mix enable/disable with standard base
 flagly.parse("-admin.users.delete", { admin: { users: { delete: true } } })
 // Result: { admin: { users: { delete: false } } }
-
-// Explicit enable with + prefix
-flagly.parse("+admin.users.create")
-// Result: { admin: { users: { create: true } } }
 ```
 
 #### `stringify(flags: Flags): string`

@@ -1,8 +1,8 @@
 import { flagly } from "./index"
 
 describe("flagly.unset", () => {
-	it("no flag", () => {
-		expect(flagly.unset({ user: true }, ...[])).toEqual({ user: true })
-		expect(flagly.unset({ user: { view: true } }, ...[])).toEqual({ user: { view: true } })
-	})
+	it.each([
+		{ flags: { user: true }, expected: { user: true } },
+		{ flags: { user: { view: true } }, expected: { user: { view: true } } },
+	])("keeps flags without path", ({ flags, expected }) => expect(flagly.unset(flags, ...[])).toEqual(expected))
 })

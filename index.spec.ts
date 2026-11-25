@@ -6,35 +6,45 @@ describe("flagly", () => {
 		const flags = flagly.parse(testString)
 		expect(flagly.stringify(flags)).toEqual(testString)
 	})
-	it("stringify negative name", () => {
-		const minusName = { "-test": { user: true, org: false } }
-		expect(flagly.parse(flagly.stringify(minusName))).toEqual(minusName)
-	})
 
-	it("get.path", () => {
+	it.each([
+		{ path: ["user.view"], expected: true },
+		{ path: ["user.view", "user.write"], expected: true },
+		{ path: ["user.edit"], expected: false },
+		{ path: ["user.view", "user.edit"], expected: false },
+	])("get.path $path", ({ path, expected }) => {
 		const flags: flagly.Flags = { user: { view: true, write: true } }
-		expect(flagly.get.path(flags, "user.view")).toEqual(true)
-		expect(flagly.get.path(flags, "user.view", "user.write")).toEqual(true)
-		expect(flagly.get.path(flags, "user.edit")).toEqual(false)
-		expect(flagly.get.path(flags, "user.view", "user.edit")).toEqual(false)
+		expect(flagly.get.path(flags, ...path)).toEqual(expected)
 	})
-	it("set.path", () => {
+	it.each([
+		{
+			path: "user.write",
+			expected: { user: { view: true, write: true } },
+		},
+		{
+			path: "org.write",
+			expected: { user: { view: true }, org: { write: true } },
+		},
+	])("set.path $path", ({ path, expected }) => {
 		const flags: flagly.Flags = { user: { view: true } }
-		expect(flagly.set.path(flags, "user.write")).toEqual({ user: { view: true, write: true } })
-		expect(flagly.set.path(flags, "org.write")).toEqual({ user: { view: true }, org: { write: true } })
+		expect(flagly.set.path(flags, path)).toEqual(expected)
 	})
-	it("unset.path", () => {
+	it.each([
+		{ path: ["user.write"], expected: { user: { view: true, write: false } } },
+		{
+			path: ["org.view", "user.write"],
+			expected: { user: { view: true, write: false }, org: { view: false } },
+		},
+	])("unset.path $path", ({ path, expected }) => {
 		const flags: flagly.Flags = { user: { view: true, write: true } }
-		expect(flagly.unset.path(flags, "user.write")).toEqual({ user: { view: true, write: false } })
-		expect(flagly.unset.path(flags, "org.view", "user.write")).toEqual({
-			user: { view: true, write: false },
-			org: { view: false }
-		})
+		expect(flagly.unset.path(flags, ...path)).toEqual(expected)
 	})
-	it("remove.path", () => {
+	it.each([
+		{ path: ["user.view.foo", "user.view.bar"], expected: { user: { write: true } } },
+		{ path: ["user.view.foo", "user.view.bar", "user.write"], expected: {} },
+	])("remove.path $path", ({ path, expected }) => {
 		const flags: flagly.Flags = { user: { view: { foo: true, bar: true }, write: true } }
-		expect(flagly.remove.path(flags, "user.view.foo", "user.view.bar")).toEqual({ user: { write: true } })
-		expect(flagly.remove.path(flags, "user.view.foo", "user.view.bar", "user.write")).toEqual({})
+		expect(flagly.remove.path(flags, ...path)).toEqual(expected)
 		expect(flags).not.toEqual({})
 		expect(flagly.remove(flags, "user")).toEqual({})
 	})

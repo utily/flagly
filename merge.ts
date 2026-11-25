@@ -10,9 +10,11 @@ export function merge(...flags: Flags[]): Flags {
 						value == true || old == true
 							? true
 							: typeof old != "object"
-								? (value ?? old)
+								? value == undefined
+									? old
+									: value
 								: typeof value != "object"
-									? value && old
+									? value
 									: merge(old, value)
 				}
 			}, result),

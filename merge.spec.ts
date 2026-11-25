@@ -1,20 +1,29 @@
 import { flagly } from "./index"
 
 describe("merge", () => {
-	it("prefer true on lower nesting", () => {
-		expect(flagly.merge({ a: true }, { a: { b: true } })).toEqual({ a: true })
-		expect(flagly.merge({ a: { b: true } }, { a: true })).toEqual({ a: true })
-	})
-	it("prefer true over false", () => {
-		expect(flagly.merge({ a: false }, { a: true })).toEqual({ a: true })
-		expect(flagly.merge({ a: true }, { a: false })).toEqual({ a: true })
-	})
-	it("prefer true over object", () => {
-		expect(flagly.merge({ a: true, b: true }, { a: { c: true }, d: true })).toEqual({ a: true, b: true, d: true })
-		expect(flagly.merge({ a: { c: true }, d: true }, { a: true, b: true })).toEqual({ a: true, b: true, d: true })
-	})
-	it("deeper nesting", () => {
-		expect(flagly.merge({ a: true }, { a: { b: true } })).toEqual({ a: true })
-		expect(flagly.merge({ a: { b: true } }, { a: true })).toEqual({ a: true })
-	})
+	it.each([
+		{ left: { a: true }, right: { a: { b: true } }, expected: { a: true } },
+		{ left: { a: { b: true } }, right: { a: true }, expected: { a: true } },
+		{ left: { a: false }, right: { a: true }, expected: { a: true } },
+		{ left: { a: true }, right: { a: false }, expected: { a: true } },
+		{
+			left: { a: true, b: true },
+			right: { a: { c: true }, d: true },
+			expected: { a: true, b: true, d: true },
+		},
+		{
+			left: { a: { c: true }, d: true },
+			right: { a: true, b: true },
+			expected: { a: true, b: true, d: true },
+		},
+		{
+			left: { a: { b: true } },
+			right: { a: { c: false } },
+			expected: { a: { b: true, c: false } },
+		},
+		{ left: { a: { b: true } }, right: { a: undefined }, expected: { a: undefined } },
+		{ left: { a: false }, right: { a: { b: true } }, expected: { a: { b: true } } },
+		{ left: { a: false }, right: { a: undefined }, expected: { a: false } },
+		{ left: { a: { b: true } }, right: { a: false }, expected: { a: false } },
+	])("case $#", ({ left, right, expected }) => expect(flagly.merge(left, right)).toEqual(expected))
 })
