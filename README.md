@@ -285,6 +285,11 @@ const flagsString = flagly.stringify(features)
 
 All functions that modify flags (`set`, `unset`, `remove`, `merge`) return new objects without mutating the original. This makes it safe to use with state management and functional programming patterns.
 
+## Release Process
+
+Versioning and npm publishing details are documented in [RELEASING.md](./RELEASING.md).
+
 ## License
 
 MIT
+

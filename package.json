@@ -27,12 +27,6 @@
 		"LICENSE",
 		"README.md"
 	],
-	"git": {
-		"tagName": "release-${version}"
-	},
-	"github": {
-		"release": true
-	},
 	"scripts": {
 		"build": "tsc -p tsconfig.build.json",
 		"clean": "rimraf dist node_modules coverage",
@@ -44,11 +38,12 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.6.8",
+		"@vitest/coverage-v8": "^5.1.1",
 		"rimraf": "^6.0.1",
+		"semantic-release": "^26.0.1",
 		"typescript": "^5.7.2",
 		"vite": "^8.3.8",
-		"vitest": "^5.1.1",
-		"@vitest/coverage-v8": "^5.1.1"
+		"vitest": "^5.1.1"
 	},
 	"dependencies": {
 		"isly": "^1.10.0"
