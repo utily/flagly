@@ -292,4 +292,3 @@ Versioning and npm publishing details are documented in [RELEASING.md](./RELEASI
 ## License
 
 MIT
-

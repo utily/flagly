@@ -5,7 +5,6 @@ export interface Identifier {
 	name: string
 }
 export namespace Identifier {
-	export const { type, is, flawed } = isly
-		.object({ type: isly.string("value", "identifier"), name: isly.string() })
-		.bind()
+	export const type = isly.object({ type: isly.string("value", "identifier"), name: isly.string() })
+	export const { is, flawed } = type.bind()
 }

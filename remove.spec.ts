@@ -10,6 +10,6 @@ describe("flagly.remove", () => {
 		{ flags: { user: true }, path: [], expected: { user: true } },
 		{ flags: { user: { view: true } }, path: [], expected: { user: { view: true } } },
 		{ flags: { user: true }, path: ["user", "view"], expected: {} },
-		{ flags: { user: false }, path: ["user", "view"], expected: {} },
+		{ flags: { user: false }, path: ["user", "view"], expected: {} }
 	])("removes path $path", ({ flags, path, expected }) => expect(flagly.remove(flags, ...path)).toEqual(expected))
 })

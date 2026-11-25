@@ -8,18 +8,17 @@ import { Start as _Start } from "./Start"
 export type Token = Token.End | Token.Identifier | Token.Member | Token.Negator | Token.Start
 
 export namespace Token {
-	export const { type, is, flawed } = isly
-		.union<Token>(_End.type, _Identifier.type, _Member.type, _Negator.type, _Start.type)
-		.bind()
+	export const type = isly.union<Token>(_End.type, _Identifier.type, _Member.type, _Negator.type, _Start.type)
+	export const { is, flawed } = type.bind()
 	export function* tokenize(input: Iterable<string>): Generator<Token> {
 		let accumulator = ""
 		for (const block of input)
 			for (const character of block) {
 				if (
-					("a" <= character && character <= "z") ||
-					("A" <= character && character <= "Z") ||
-					character == "_" ||
-					(("0" <= character && character <= "9") && accumulator.length > 0)
+					("a" <= character && character <= "z")
+					|| ("A" <= character && character <= "Z")
+					|| character == "_"
+					|| ("0" <= character && character <= "9" && accumulator.length > 0)
 				)
 					accumulator += character
 				else {

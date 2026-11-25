@@ -11,7 +11,7 @@ export function parse(flags: string | Iterator<Token>, result: Flags = {}): Flag
 			next: () => (buffer.length ? { done: false, value: buffer.pop()! } : iterator.next()),
 			unread: token => {
 				buffer.push(token)
-			},
+			}
 		},
 		result
 	).result

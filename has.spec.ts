@@ -10,6 +10,6 @@ describe("flagly.has", () => {
 		{ flags: { a: { b: { c: true } } }, test: { a: { b: true } }, expected: false },
 		{ flags: { a: { b: { c: true } } }, test: { a: { b: false } }, expected: false },
 		{ flags: { a: { b: true } }, test: { a: true }, expected: false },
-		{ flags: { a: true }, test: { a: { b: true } }, expected: true },
+		{ flags: { a: true }, test: { a: { b: true } }, expected: true }
 	])("has $expected", ({ flags, test, expected }) => expect(flagly.has(flags, test)).toEqual(expected))
 })

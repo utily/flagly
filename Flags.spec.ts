@@ -10,6 +10,6 @@ describe("flagly.Flags", () => {
 		{ value: { user: {} }, expected: true },
 		{ value: { user: 123 }, expected: false },
 		{ value: { user: { read: "123" } }, expected: false },
-		{ value: { user: null }, expected: false },
+		{ value: { user: null }, expected: false }
 	])("is $expected", ({ value, expected }) => expect(flagly.Flags.is(value as never)).toEqual(expected))
 })

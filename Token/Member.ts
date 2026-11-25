@@ -4,5 +4,6 @@ export interface Member {
 	type: "member"
 }
 export namespace Member {
-	export const { type, is, flawed } = isly.object({ type: isly.string("value", "member") }).bind()
+	export const type = isly.object({ type: isly.string("value", "member") })
+	export const { is, flawed } = type.bind()
 }

@@ -11,7 +11,7 @@ describe("flagly.get", () => {
 		{ flags: { a: true, b: { c: true } }, path: ["b", "d"], expected: undefined },
 		{ flags: { a: true, b: { c: true } }, path: ["b", "c", "d"], expected: true },
 		{ flags: undefined, path: [], expected: undefined },
-		{ flags: { a: false }, path: ["a", "b"], expected: undefined },
+		{ flags: { a: false }, path: ["a", "b"], expected: undefined }
 	])("gets $path", ({ flags, path, expected }) => expect(flagly.get(flags, ...path)).toEqual(expected))
 	it("gets primitive nested value as undefined", () => {
 		expect(flagly.get({ a: "invalid" } as never, "a", "b")).toEqual(undefined)
