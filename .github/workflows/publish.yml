@@ -30,6 +30,8 @@ jobs:
         run: npm audit signatures
       - name: Build package
         run: npm run build
+      - name: Check npm version
+        run: npm --version
       - name: Release with semantic-release
         run: npx semantic-release
         env:
